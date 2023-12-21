@@ -22,18 +22,14 @@ fn get_occurrences_diviser_pour_regner_tab_non_trie(tab: &[i32], element: i32) -
     }
     let mid = tab.len() / 2;
     let (left, right) = tab.split_at(mid);
+
     let left_occurrences = get_occurrences_diviser_pour_regner_tab_non_trie(left, element);
     let right_occurrences = get_occurrences_diviser_pour_regner_tab_non_trie(right, element);
 
     left_occurrences + right_occurrences
 }
 
-fn occurrences_diviser_pour_regner_trie(
-    tab: &[i32],
-    start: usize,
-    end: usize,
-    element: i32,
-) -> usize {
+fn occurrences_diviser_pour_regner_trie(tab: &[i32], start: usize, end: usize, element: i32) -> usize {
     if start > end {
         return 0;
     }
