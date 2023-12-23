@@ -37,24 +37,9 @@ fn occurrences_diviser_pour_regner_trie(tab: &[i32], start: usize, end: usize, e
     let mid = (start + end) / 2;
 
     if tab[mid] == element {
-        let mut counter = 1;
-        for i in (0..mid).rev() {
-            if tab[i] == element {
-                counter += 1;
-            } else {
-                break;
-            }
-        }
-
-        for j in (mid + 1)..tab.len() {
-            if tab[j] == element {
-                counter += 1;
-            } else {
-                break;
-            }
-        }
-
-        return counter;
+        return 
+             occurrences_diviser_pour_regner_trie(tab, start, mid, element) + 
+            occurrences_diviser_pour_regner_trie(tab, mid + 1, end, element);
     } else if tab[mid] < element {
         return occurrences_diviser_pour_regner_trie(tab, mid + 1, end, element);
     } else {
